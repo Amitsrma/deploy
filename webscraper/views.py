@@ -99,7 +99,7 @@ def get_occurences(stringg, scraped_query):
 def tokenize_sentences(list_of_text, exclude_list=[]) -> list:
     tokenized_text = []
     for a_text in list_of_text:
-        checker = [i for i in nltk.word_tokenize(a_text) if i not in exclude_list and exclude_list[-1] not in i]
+        checker = [i for i in (a_text.split(" ")) if i not in exclude_list and exclude_list[-1] not in i]
         tokenized_text.extend(checker)
     return tokenized_text
 
@@ -135,7 +135,7 @@ def word_cloud(request):
         to_exclude.extend(['says','cases','us','energency', 'people','show','get','due','could','health','may','new'])
         to_exclude.extend(['-',"'","'s",":",",","?","$",'’'])
         to_exclude.extend(list(punctuation))
-        print(to_exclude)
+#        print(to_exclude)
         filtered_titles = (tokenize_sentences(filtered_titles,
                                 exclude_list=to_exclude))
 
