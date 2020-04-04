@@ -1,7 +1,7 @@
 from uuid import uuid4
 import nltk
-!nltk.download('stopwords')
-!nltk.download('punkt')
+#!nltk.download('stopwords')
+#!nltk.download('punkt')
 from urllib.parse import urlparse
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
@@ -101,7 +101,7 @@ def get_occurences(stringg, scraped_query):
 def tokenize_sentences(list_of_text, exclude_list=[]) -> list:
     tokenized_text = []
     for a_text in list_of_text:
-        checker = [i for i in nltk.word_tokenize(a_text) if i not in exclude_list and exclude_list[-1] not in i]
+        checker = [i for i in a_text.split(" ") if i not in exclude_list and exclude_list[-1] not in i]
         tokenized_text.extend(checker)
     return tokenized_text
 
