@@ -142,7 +142,7 @@ def word_cloud(request):
                                 exclude_list=to_exclude))
 
         filtered_titles = top_n_words(FreqDist(filtered_titles),30)
-        print("\n\n",filtered_titles,"\n\n")
+        #print("\n\n",filtered_titles,"\n\n")
         fig = go.Figure()
         y_=list(filtered_titles.values())
         fig.add_trace(go.Bar(
